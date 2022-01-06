@@ -1,0 +1,94 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Lobster&display=swap');
+
+html,
+body {
+  font-family: 'Open Sans', sans-serif;
+  background-color: rgb(240, 240, 240);
+  color: white;
+}
+html {
+  height: calc(100% - 4rem);
+}
+
+body {
+  min-height: 100%;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+.wide__container {
+  max-width: 1400px;
+}
+
+.featured-arrows {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  cursor: pointer;
+  z-index: 20;
+}
+
+.__top {
+  min-height: calc(100vh - 4rem);
+}
+
+.wavy {
+  font-family: 'Lobster', cursive;
+}
+
+.cate-btns {
+  position: relative;
+  padding: 0.5em 1.25em;
+}
+
+.cate-btns::before,
+.cate-btns::after {
+  content: '';
+  position: absolute;
+  height: 0.1em;
+  width: 100%;
+  background-color: #dc2626;
+  left: 0;
+  transform: scale(0);
+  transition: all 300ms ease-out;
+}
+
+.cate-btns::before {
+  top: 0;
+}
+.cate-btns::after {
+  bottom: 0;
+}
+.cate-btns:hover::before {
+  transform: scale(1);
+}
+.cate-btns:hover::after {
+  transform: scale(1);
+}
+
+.parent-btn:hover > .child-icon {
+  right: 30%;
+}
+
+@layer components {
+  .nav-links {
+    @apply duration-200 ease-out hover:text-gray-200 transition-all hover:translate-y-[-2px] hover:drop-shadow-lg;
+  }
+  ._navbar {
+    @apply pt-16 w-screen min-h-screen;
+  }
+}
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
